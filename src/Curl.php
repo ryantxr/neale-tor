@@ -31,7 +31,10 @@ class Curl
     public function exec()
     {
         echo __METHOD__ . "\n";
-        $this->ch = curl_init("http://piratebayztemzmv.onion/");
+        // $url = 'https://check.torproject.org/';
+        $url = "http://piratebayztemzmv.onion/";
+        $this->line("URL = {$url}");
+        $this->ch = curl_init($url);
         
         // Get back the header
         curl_setopt($this->ch, CURLOPT_HEADER, true);
@@ -45,6 +48,7 @@ class Curl
         // Fixed $ch -> $this->ch Looks OK
         curl_setopt( $this->ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5_HOSTNAME );
         $torSocks5Proxy = "socks5h://127.0.0.1:9050"; // Do we need to run something on local?
+        $this->line("Using socks proxy {$torSocks5Proxy}");
         curl_setopt( $this->ch, CURLOPT_PROXY, $torSocks5Proxy );
 
         // sending manually set cookie
@@ -69,13 +73,18 @@ class Curl
 
         $s = curl_exec($this->ch);
         if ( curl_errno($this->ch) ) {
-            echo 'Curl error: ' . curl_error($this->ch);
+            $this->line('Curl error: ' . curl_error($this->ch));
         } else {
-            
+            $this->line("No error");
         }
-        echo "\n";
+        $this->line($s);
         // URL without proxy.php
         $this->baseUrl = substr($_SERVER['PHP_SELF'], 0, -9);
+    }
+
+    public function line($s=null)
+    {
+        echo $s . "\n";
     }
 }
 /*
