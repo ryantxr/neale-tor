@@ -1,0 +1,17 @@
+{
+    "name": "ryantxr/tor",
+    "type": "project",
+    "require": {
+        "guzzlehttp/guzzle": "^7.0@dev",
+        "monolog/monolog": "^2.0@dev",
+        "nesbot/carbon": "^2.0@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ryantxr\\TorCurl\\":"src/"
+        }
+    },
+    "license": "DBAD",
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
