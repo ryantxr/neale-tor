@@ -18,4 +18,4 @@ Install the socks5 proxy
 
 ## Install Composer
 
-    Go to https://getcomposer.com
+    Go to https://getcomposer.org
