@@ -70,6 +70,8 @@ class Curl
         $s = curl_exec($this->ch);
         if ( curl_errno($this->ch) ) {
             echo 'Curl error: ' . curl_error($this->ch);
+        } else {
+            
         }
         echo "\n";
         // URL without proxy.php

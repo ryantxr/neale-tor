@@ -1,5 +1,6 @@
 {
     "name": "ryantxr/tor",
+    "description": "A PHP Tor project",
     "type": "project",
     "require": {
         "guzzlehttp/guzzle": "^7.0@dev",
